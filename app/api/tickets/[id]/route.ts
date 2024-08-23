@@ -7,7 +7,7 @@ interface Props {
 }
 
 export async function PATCH(request: NextRequest, { params }: Props) {
-  const body = request.json();
+  const body = await request.json();
   const validation = ticketSchema.safeParse(body);
 
   if (!validation.success) {
