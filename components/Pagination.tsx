@@ -23,10 +23,6 @@ const Pagination = ({ itemCount, pageSize, currentPage }: Props) => {
 
   if (pagesCount <= 1) return null;
 
-  // const changePage = (page) =>{
-  //   // const newPage = searchParams.get('page') ? parseInt(searchParams.get('page')!)
-  // }
-
   const changePage = (page: number) => {
     const params = new URLSearchParams(searchParams);
     params.set("page", page.toString());
@@ -34,7 +30,7 @@ const Pagination = ({ itemCount, pageSize, currentPage }: Props) => {
   };
 
   return (
-    <div className="mt-10 mb-6">
+    <div className="mt-10 mb-6 flex flex-col items-end">
       <div>
         <Button variant="outline" disabled={currentPage === 1} onClick={() => changePage(1)}>
           <ChevronFirst />
@@ -49,7 +45,7 @@ const Pagination = ({ itemCount, pageSize, currentPage }: Props) => {
           <ChevronLast />
         </Button>
       </div>
-      <div>
+      <div className="mt-4">
         <p>
           Page {currentPage} of {pagesCount}
         </p>
