@@ -45,6 +45,7 @@ const UserForm = ({ user }: Props) => {
     try {
       setIsSubmitting(true);
       setError("");
+      console.log(user);
       if (user) {
         await axios.patch(`/api/users/${user.id}`, values);
       } else {
@@ -135,9 +136,9 @@ const UserForm = ({ user }: Props) => {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="USER">User</SelectItem>
-                      <SelectItem value="TECH">Tech</SelectItem>
                       <SelectItem value="ADMIN">Admin</SelectItem>
+                      <SelectItem value="TECH">Tech</SelectItem>
+                      <SelectItem value="USER">User</SelectItem>
                     </SelectContent>
                   </Select>
                 </FormItem>

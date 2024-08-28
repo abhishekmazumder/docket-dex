@@ -22,9 +22,11 @@ export async function PATCH(request: NextRequest, { params }: Props) {
     return NextResponse.json({ error: "User not found!" }, { status: 404 });
   }
 
-  if (body?.password) {
+  if (body?.password && body.password !== "") {
     const hashPassword = await bcrypt.hash(body.password, 10);
     body.password = hashPassword;
+  } else {
+    delete body.password;
   }
 
   if (user.username !== body.usename) {
@@ -40,9 +42,7 @@ export async function PATCH(request: NextRequest, { params }: Props) {
   }
 
   const updatedUser = await prisma.user.update({
-    where: {
-      id: user.id,
-    },
+    where: { id: user.id },
     data: { ...body },
   });
 
