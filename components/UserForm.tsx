@@ -45,7 +45,6 @@ const UserForm = ({ user }: Props) => {
     try {
       setIsSubmitting(true);
       setError("");
-      console.log(user);
       if (user) {
         await axios.patch(`/api/users/${user.id}`, values);
       } else {
