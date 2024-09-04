@@ -28,8 +28,10 @@ const StatusFilter = () => {
         onValueChange={(status) => {
           const params = new URLSearchParams(searchParams);
           if (status) params.set("status", status);
-          const query = params.size ? `?${params.toString()}` : "0";
-          router.push(`/tickets${query}`);
+          // const query = params.size ? `?${params.toString()}` : "0";
+          // router.push(`/tickets${query}`);
+          params.delete("page");
+          router.push(`/tickets?${params.toString()}`);
         }}
       >
         <SelectTrigger className="w-[300px]">
