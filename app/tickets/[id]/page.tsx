@@ -7,9 +7,15 @@ interface Props{
 }
 
 const ViewTicket = async({params}: Props) => {
+  if(isNaN(parseInt(params.id))){
+    return <p className='text-destructive'>No Ticket Found!</p>
+  }
+  
   const ticket = await prisma.ticket.findUnique({
     where:{id: parseInt(params.id)}
   })
+
+  console.log(isNaN(parseInt(params.id)))
 
   const users = await prisma.user.findMany();
 
