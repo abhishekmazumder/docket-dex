@@ -4,6 +4,7 @@ import DataTableSimple from "./data-table-simple";
 import prisma from "@/prisma/db";
 import { getServerSession } from "next-auth";
 import options from "../api/auth/[...nextauth]/options";
+import { useRouter } from "next/navigation";
 
 const Users = async () => {
   const session = await getServerSession(options);

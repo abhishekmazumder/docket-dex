@@ -28,6 +28,7 @@ export async function PATCH(request: NextRequest, { params }: Props) {
   const user = await prisma.user.findUnique({
     where: { id: parseInt(params.id) },
   });
+  
   if (!user) {
     return NextResponse.json({ error: "User not found!" }, { status: 404 });
   }
