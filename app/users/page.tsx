@@ -7,10 +7,10 @@ import options from "../api/auth/[...nextauth]/options";
 import { useRouter } from "next/navigation";
 
 const Users = async () => {
-  const session = await getServerSession(options);
-  if (session?.user.role !== "ADMIN") {
-    return <div className="text-destructive">Access denied. Admin Only!</div>;
-  }
+  // const session = await getServerSession(options);
+  // if (session?.user.role !== "ADMIN") {
+  //   return <div className="text-destructive">Access denied. Admin Only!</div>;
+  // }
 
   const users = await prisma.user.findMany();
   return (
