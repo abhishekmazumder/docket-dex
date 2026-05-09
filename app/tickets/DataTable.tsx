@@ -12,7 +12,7 @@ import { Ticket } from "@prisma/client";
 import Link from "next/link";
 import React from "react";
 import { ArrowDown } from "lucide-react";
-import { SearchParams } from "./page";
+import type { SearchParams } from "./page";
 
 interface Props {
   tickets: Ticket[];

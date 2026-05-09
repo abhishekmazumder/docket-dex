@@ -24,6 +24,8 @@ export async function POST(request: NextRequest) {
   const duplicate = await prisma.user.findUnique({
     where: { username: body.username },
   });
+
+  
   if (duplicate) {
     return NextResponse.json(
       { message: "Username already taken!" },

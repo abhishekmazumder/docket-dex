@@ -7,6 +7,9 @@ import Pagination from "@/components/Pagination";
 import StatusFilter from "@/components/StatusFilter";
 import { Status, Ticket } from "@prisma/client";
 
+// interface Props {
+//   searchParams: SearchParams;
+// }
 export interface SearchParams {
   status: Status;
   page: string;
@@ -35,6 +38,7 @@ const Tickets = async ({ searchParams }: { searchParams: SearchParams }) => {
       NOT: [{ status: "CLOSED" as Status }],
     };
   }
+
   const ticketCount = await prisma.ticket.count({ where });
   const tickets = await prisma.ticket.findMany({
     where,

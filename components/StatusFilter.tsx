@@ -26,7 +26,7 @@ const StatusFilter = () => {
       <Select
         defaultValue={searchParams.get("status") || ""}
         onValueChange={(status) => {
-          const params = new URLSearchParams(searchParams);
+          const params = new URLSearchParams(searchParams?.toString());
           if (status) params.set("status", status);
           // const query = params.size ? `?${params.toString()}` : "0";
           // router.push(`/tickets${query}`);
